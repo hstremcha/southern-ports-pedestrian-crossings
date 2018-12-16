@@ -100,7 +100,7 @@
       <script src="data/pedestrian x.geojson"></script>
       <script>
         var options = {
-          center: [31.8113481, -106.5646035],
+          center: [29.8113481, -106.5646035],
           zoom: 6,
           zoomSnap: .1,
           zoomControl: false
@@ -154,7 +154,7 @@
             });
             layer.on('mouseout', function() {
               layer.setStyle({
-                fillColor: '#ac58fa'
+                fillColor: 'green'
               });
             });
             layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>"
@@ -162,36 +162,6 @@
             + feature.properties.pedestrian + " Pedestrian entries in September 2018");
           }
           }).addTo(map);
-
-        /*  var smallPorts = L.geoJson(data, {
-            pointToLayer: function (feature,latlng){
-            return L.circleMarker(latlng, commonStyles);
-          },
-
-          style: function (feature) {
-            return {
-              color: 'green',
-              fillColor: 'green',
-              radius: 1
-              //radius: getRadius(feature.properties.pedestrian)
-            }
-          },
-          onEachFeature: function(feature, layer) { //add UI mouseover color
-            layer.on('mouseover', function() {
-              layer.setStyle({
-                fillColor: 'yellow'
-              });
-            });
-            layer.on('mouseout', function() {
-              layer.setStyle({
-                fillColor: '#ac58fa'
-              });
-            });
-            layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>"
-            + feature.properties.cp_name + ", " + feature.properties.state + "<br>"
-            + feature.properties.pedestrian + " Pedestrian entries in September 2018");
-          }
-        }).addTo(map);*/
         });
 
         function getRadius(pedestrians) {
