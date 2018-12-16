@@ -3,160 +3,160 @@
 
 <head>
   <meta charset=utf-8 />
-	<title>Final Project</title>
-	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+  <title>Final Project</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
 
   <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: #222;
-    font-family: Lato, sans-serif;
-    color: #0D0000;
-  }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #222;
+      font-family: Lato, sans-serif;
+      color: #0D0000;
+    }
 
-  header {
-    width: 80%;
-    margin: 10px auto 10px auto;
-  }
+    header {
+      width: 80%;
+      margin: 10px auto 10px auto;
+    }
 
-  h1 {
-    display: inline-block;
-    margin-right: 20px;
-    color: #001323;
-  }
+    h1 {
+      display: inline-block;
+      margin-right: 20px;
+      color: #001323;
+    }
 
-  h2 {
-    display: inline-block;
-    color: #001323;
-  }
+    h2 {
+      display: inline-block;
+      color: #001323;
+    }
 
-  #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(63, 63, 63, 0.9);
-    /* with transparency */
-  }
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(63, 63, 63, 0.9);
+      /* with transparency */
+    }
 
-  a {
-    color: #004A8B;
-  }
+    a {
+      color: #004A8B;
+    }
 
-  a:hover {
-    color: rgb(67, 69, 71);
-    text-decoration: none;
-  }
+    a:hover {
+      color: rgb(67, 69, 71);
+      text-decoration: none;
+    }
 
-  .legend {
-    padding: 6px 8px;
-    font-size: 1em;
-    /* Use transparency to blend elements. */
-    border: 2px solid rgba(244, 244, 244, 0.2);
-    background: rgba(100, 100, 100, 0.9);
-    color: rgba(244, 244, 244, 0.8);
-    border-radius: 5px;
-  }
+    .legend {
+      padding: 6px 8px;
+      font-size: 1em;
+      /* Use transparency to blend elements. */
+      border: 2px solid rgba(244, 244, 244, 0.2);
+      background: rgba(100, 100, 100, 0.9);
+      color: rgba(244, 244, 244, 0.8);
+      border-radius: 5px;
+    }
 
-  .legend h3 {
-    font-size: 1.1em;
-    font-weight: bolder;
-    color: #ddd;
-    /* Light */
-    margin: 0 0 10px 0;
-  }
+    .legend h3 {
+      font-size: 1.1em;
+      font-weight: bolder;
+      color: #ddd;
+      /* Light */
+      margin: 0 0 10px 0;
+    }
 
-  .legend span {
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin: 0 10px 4px 0;
-  }
+    .legend span {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin: 0 10px 4px 0;
+    }
 
-  .legend label {
-    font-size: 1.1em;
-  }
+    .legend label {
+      font-size: 1.1em;
+    }
 
-  .legend label:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
+    .legend label:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
 
-  .leaflet-bar a {
-    /* Override the default style for Leaflet's zoom  */
-    background: rgba(100, 100, 100, 0.9);
-    color: rgba(244, 244, 244, 0.8);
-  }
+    .leaflet-bar a {
+      /* Override the default style for Leaflet's zoom  */
+      background: rgba(100, 100, 100, 0.9);
+      color: rgba(244, 244, 244, 0.8);
+    }
 
-  footer {
-    padding: 6px 10%;
-    width: 80%;
-  }
+    footer {
+      padding: 6px 10%;
+      width: 80%;
+    }
 
-  p {
-    font-size: 1em;
-    color: #001323;
-  }
+    p {
+      font-size: 1em;
+      color: #001323;
+    }
 
-  #info-button {
-    padding: 8px 5px;
-    font-size: 0.9em;
-    font-weight: bolder;
-    /* Style matches Leaflet controls */
-    border: 2px solid rgba(244, 244, 244, 0.2);
-    background: rgba(100, 100, 100, 0.9);
-    color: rgba(244, 244, 244, 0.8);
-    border-radius: 5px;
-    /* Position is fixed next to the zoom bar */
-    position: fixed;
-    top: 11px;
-    right: 52px;
-    /* Draw it on top of all elements */
-    z-index: 9999;
-    /* Cursor change on hover -- doesn't work on touch screensn */
-    cursor: pointer;
-  }
+    #info-button {
+      padding: 8px 5px;
+      font-size: 0.9em;
+      font-weight: bolder;
+      /* Style matches Leaflet controls */
+      border: 2px solid rgba(244, 244, 244, 0.2);
+      background: rgba(100, 100, 100, 0.9);
+      color: rgba(244, 244, 244, 0.8);
+      border-radius: 5px;
+      /* Position is fixed next to the zoom bar */
+      position: fixed;
+      top: 11px;
+      right: 52px;
+      /* Draw it on top of all elements */
+      z-index: 9999;
+      /* Cursor change on hover -- doesn't work on touch screensn */
+      cursor: pointer;
+    }
 
-  #footer {
-    width: 100%;
-    background: rgba(244, 244, 244, 0.8);
-    color: rgba(20, 20, 20, 0.8);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    height: 0px;
-    padding: 0px;
-    /* display below the button to allow clicking if overlay covers screen */
-    z-index: 9000;
-    position: absolute;
-    /*
+    #footer {
+      width: 100%;
+      background: rgba(244, 244, 244, 0.8);
+      color: rgba(20, 20, 20, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      height: 0px;
+      padding: 0px;
+      /* display below the button to allow clicking if overlay covers screen */
+      z-index: 9000;
+      position: absolute;
+      /*
 Hide the footer be default. This should not contain too much information. Like to a new page for extended content.
 */
-    bottom: -10px;
-    /* If too much is included, enable scroll */
-    overflow: scroll;
-  }
+      bottom: -10px;
+      /* If too much is included, enable scroll */
+      overflow: scroll;
+    }
 
-  #footer div {
-    padding: 10px;
-  }
+    #footer div {
+      padding: 10px;
+    }
 
-  #footer h1 {
-    font-size: 1.3em;
-    margin: 0 0 5px 0;
-  }
+    #footer h1 {
+      font-size: 1.3em;
+      margin: 0 0 5px 0;
+    }
 
-  .footer-img {
-    float: right;
-    height: 10vh;
-    margin: 10px;
-  }
-	</style>
+    .footer-img {
+      float: right;
+      height: 10vh;
+      margin: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -179,9 +179,8 @@ Hide the footer be default. This should not contain too much information. Like t
       <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
       <script src="data/pedestrian x.geojson"></script>
       <script>
-
         var options = {
-          center: [31.8113481,-106.5646035],
+          center: [31.8113481, -106.5646035],
           zoom: 6,
           zoomSnap: .1,
           zoomControl: false
@@ -194,10 +193,40 @@ Hide the footer be default. This should not contain too much information. Like t
           maxZoom: 19
         }).addTo(map);
 
+      /*pedestrian.feature.sort(function (a, b) {
+          return b.properties.pedestriain - a.properties.pedestrian
+        }); // sort plants by power output*/
+
         map.addControl(L.control.zoom({
           position: 'topright'
         }));
-  </script>
+
+        var commonStyles = {
+    			weight: 1,
+    			stroke: 1,
+    			fillOpacity: .5
+    		}
+
+        $.getJSON("data/pedestrian x.geojson", function(data) {
+          var ports = L.geoJson(data, {
+            pointToLayer: function (feature,latlng){
+            return L.circleMarker(latlng, commonStyles);
+          },
+          style: function (feature) {
+            return {
+              color: '#2ca25f',
+              fillColor: '#2ca25f',
+              radius: getRadius(feature.properties.pedestrian)
+            }
+          },
+          }).addTo(map);
+        });
+
+        function getRadius(pedestrians) {
+          var radius = Math.sqrt(pedestrians / Math.PI);
+          return radius * .15
+        };
+      </script>
 
 
 </body>
