@@ -35,7 +35,6 @@
 { "type": "Feature", "properties": { "portname": "El Paso-Stanton", "state": "TX", "cp_name": "El Paso", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -106.482758, 31.748286 ] } },
 { "type": "Feature", "properties": { "portname": "Eagle Pass II", "state": "TX", "cp_name": "Eagle Pass", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -100.51053, 28.697737 ] } },
 { "type": "Feature", "properties": { "portname": "El Paso-PDN", "state": "TX", "cp_name": "El Paso", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -106.486938, 31.747714 ] } },
-{ "type": "Feature", "properties": { "portname": "Nogales-Mariposa", "state": "AZ", "cp_name": "Nogales", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -110.965325, 31.332629 ] } },
 { "type": "Feature", "properties": { "portname": "San Luis II", "state": "AZ", "cp_name": "San Luis", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -114.847863, 32.505163 ] } },
 { "type": "Feature", "properties": { "portname": "Antelope Wells", "state": "NM", "cp_name": "Columbus", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -108.530214, 31.333355 ] } },
 { "type": "Feature", "properties": { "portname": "Fort Hancock", "state": "TX", "cp_name": "Fabens", "pedestrian": 0.0 }, "geometry": { "type": "Point", "coordinates": [ -105.854538, 31.273151 ] } },

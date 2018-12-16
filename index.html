@@ -134,7 +134,11 @@
             pointToLayer: function (feature,latlng){
             return L.circleMarker(latlng, commonStyles);
           },
-
+          filter: function (feature) {
+            if (feature.properties.pedestrian > 0) {
+              return feature;
+            }
+          },
           style: function (feature) {
             return {
               color: 'green',
@@ -153,19 +157,17 @@
                 fillColor: '#ac58fa'
               });
             });
-            layer.bindTooltip(feature.properties.portname + " Port of Entry " + feature.properties.pedestrian + " Pedestrian entries in September 2018"); //add tooltip with program name
+            layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>"
+            + feature.properties.cp_name + ", " + feature.properties.state + "<br>"
+            + feature.properties.pedestrian + " Pedestrian entries in September 2018");
           }
           }).addTo(map);
 
-          var smallPorts = L.geoJson(data, {
+        /*  var smallPorts = L.geoJson(data, {
             pointToLayer: function (feature,latlng){
             return L.circleMarker(latlng, commonStyles);
           },
-          filter: function (feature) {
-            if (feature.properties.pedestrian<1) {
-              return feature;
-            }
-          },
+
           style: function (feature) {
             return {
               color: 'green',
@@ -185,9 +187,11 @@
                 fillColor: '#ac58fa'
               });
             });
-            layer.bindTooltip(feature.properties.portname + " Port of Entry " + feature.properties.pedestrian + " Pedestrian entries in September 2018"); //add tooltip with program name
+            layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>"
+            + feature.properties.cp_name + ", " + feature.properties.state + "<br>"
+            + feature.properties.pedestrian + " Pedestrian entries in September 2018");
           }
-          }).addTo(map);
+        }).addTo(map);*/
         });
 
         function getRadius(pedestrians) {
