@@ -12,112 +12,118 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
 
   <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: rgb(43, 43, 43);
-    font-family: "Lato", sans-serif;
-    font-size: 100%;
-    font-weight: 300;
-    color: rgb(172, 172, 172);
-  }
-
-  header,
-  footer,
-  section {
-    width: 80%;
-    margin: 10px auto;
-  }
-
-  h1 {
-    display: inline-block;
-    margin-right: 20px;
-    color: rgb(190, 190, 190);
-    font-size: 3.5em;
-    font-weight: 700;
-  }
-
-  h2 {
-    display: inline-block;
-    color: rgba(255, 200, 0, 0.8);
-    letter-spacing: 0.05em;
-    margin-top: 0px;
-    font-weight: 300;
-    text-transform: uppercase;
-    border-bottom: 1px dotted rgba(255, 200, 0, 0.5);
-    ;
-  }
-
-  h3 {
-    display: inline-block;
-    margin-right: 20px;
-    color: rgb(190, 190, 190);
-    font-size: 2em;
-    font-weight: 700;
-  }
-  #map {
-    width: 100%;
-    height: 720px;
-    margin: 10px auto;
-  }
-
-  p {
-    color: rgba(170, 170, 170);
-    font-weight: 300;
-    font-size: 1.5em;
-  }
-
-  		.linkbox {
-  			margin: 3px 0 20px 0;
-  			display: block;
-  			font-size: 1.5em;
-  			font-weight: 300;
-  			line-height: 1.3em;
-  		}
-
-  a:link {
-    color: #2ca25f;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  a:visited {
-    color: #2ca25f;
-    background-color: transparent;
-    text-decoration: none;
-  }
-
-  /* Use float property to make two-column layout */
-  .first-column {
-    float: left;
-    width: 49%;
-    padding-right: 2%;
-  }
-
-  .column {
-    float: left;
-    width: 49%;
-  }
-
-  /* Clear floats after the columns */
-  .row::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-
-  /* When browser is 900px wide or less */
-  @media screen and (max-width: 900px) {
-
-    .first-column,
-    .second-column {
-      width: 100%;
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(43, 43, 43);
+      font-family: "Lato", sans-serif;
+      font-size: 100%;
+      font-weight: 300;
+      color: rgb(172, 172, 172);
     }
-  }
+
+    header,
+    footer,
+    section {
+      width: 80%;
+      margin: 10px auto;
+    }
+
+    h1 {
+      display: inline-block;
+      margin-right: 20px;
+      color: rgb(190, 190, 190);
+      font-size: 3.5em;
+      font-weight: 700;
+    }
+
+    h2 {
+      display: inline-block;
+      color: rgba(255, 200, 0, 0.8);
+      letter-spacing: 0.05em;
+      margin-top: 0px;
+      font-weight: 300;
+      text-transform: uppercase;
+      border-bottom: 1px dotted rgba(255, 200, 0, 0.5);
+      ;
+    }
+
+    h3 {
+      display: inline-block;
+      margin-right: 20px;
+      color: rgb(190, 190, 190);
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    #map {
+      width: 100%;
+      height: 720px;
+      margin: 10px auto;
+    }
+
+
+
+    p {
+      color: rgba(170, 170, 170);
+      font-weight: 300;
+      font-size: 1.5em;
+    }
+
+    .linkbox {
+      margin: 3px 0 20px 0;
+      display: block;
+      font-size: 1.5em;
+      font-weight: 300;
+      line-height: 1.3em;
+    }
+
+    a:link {
+      color: #2ca25f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: #2ca25f;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    /* Use float property to make two-column layout */
+    .first-column {
+      margin-top: 1%;
+      float: left;
+      width: 49%;
+      padding-right: 1%;
+    }
+
+    .column {
+      float: left;
+      width: 49%;
+      padding-left: 1%;
+      margin-top: 1%;
+    }
+
+    /* Clear floats after the columns */
+    .row::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    /* When browser is 900px wide or less */
+    @media screen and (max-width: 900px) {
+
+      .first-column,
+      .second-column {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -128,127 +134,136 @@
     <h2>Broken down by Port of Entry</h2>
   </header>
   <section>
-		<div class="row">
-			<div id="map"></div>
+    <div class="row">
+      <div id="map"></div>
 
-			<div class="first-column">
-				  <h3> Hold mouse over each port to view additional information. </h2>
+      <div class="first-column">
+        <h3> Hold mouse over each port to view additional information. </h2>
 
-          <p> Ther are 48 places where one can legally cross between the United States and Mexico. These places are known as Ports of entry.  These Ports of Entry are official crossing points where U.S. Customs and Border Protection (CBP) officers regulate the flow of people and goods between the United States and Mexico. Along the vast U.S.-Mexico border, some ports of entry lie hundreds of miles apart.  Some ports are only for commercial trucks, hauling cargo between the two countries; some are rail crossings, where only trains are allowed to cross.<br>
-          <br>
-            Of the 48 total ports, only the 24 depicted on the map above had travelers cross on foot in September 2018.  The map shows that typically larger number of travelers enter on foot closer to large cities, and that number is smaller at the more remote ports.  Foot traffic at the ports has historically been commuters and those coming to visit famiy; however, in recent months, the number of asylum seekers arriving both at and between the ports has been growing.<br>
+          <p> Ther are 48 places where one can legally cross between the United States and Mexico. These places are known as Ports of entry. These Ports of Entry are official crossing points where U.S. Customs and Border Protection (CBP) officers
+            regulate the flow of people and goods between the United States and Mexico. Along the vast U.S.-Mexico border, some ports of entry lie hundreds of miles apart. Some ports are only for commercial trucks, hauling cargo between the two
+            countries; some are rail crossings, where only trains are allowed to cross.<br>
             <br>
-             The numbers are reported to the US Department of Transportation by Customs and Border Patrol Office of Field Operations agents. The number of outbound pedestrians is not tracked by the US CBP, as they are counted by the Mexican authorities.</p>
+            Of the 48 total ports, only the 24 depicted on the map above had travelers cross on foot in September 2018. The map shows that typically larger number of travelers enter on foot closer to large cities, and that number is smaller at the
+            more remote ports. Foot traffic at the ports has historically been commuters and those coming to visit famiy; however, in recent months, the number of asylum seekers arriving both at and between the ports has been growing.<br>
+            <br>
+            The numbers are reported to the US Department of Transportation by Customs and Border Patrol Office of Field Operations agents. The number of outbound pedestrians is not tracked by the US CBP, as they are counted by the Mexican
+            authorities.</p>
           <h3> Data Source and Method </h3>
           <p>Map authored by <a href="https://www.github.com/hstremcha" target="_blank">Hope Stremcha</a></p>
           <p> Basemap from <a href="https://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank">Leaflet-providers</a></P>
-          <p>Border Crossing data accessed from the <a href="https://geo.library.arizona.edu/"> University of Arizona</a> , created by the from the <a href="https://data.transportation.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data">The US Bureau of Transportation Statistics</a>, and updated with September 2018 statistics by the map author.</p>
+          <p>Border Crossing data accessed from the <a href="https://geo.library.arizona.edu/"> University of Arizona</a> , created by the from the <a href="https://data.transportation.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data">The
+              US Bureau of Transportation Statistics</a>, and updated with September 2018 statistics by the map author.</p>
 
-				</p>
+          </p>
 
 
-			</div>
-			<div class="column">
-				<img class="max-image-width" src="deconcini.jpg" title="Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico.">
-				<div class="linkbox">
-				Pedestrians wait to enter the United States at the Deconcini port in Nogales MX. (photograph by Mike Christy of the Arizona Daily Star)
-				</div>
-			</div>
-		</div>
-	</section>
+      </div>
+      <div class="column">
+        <img src="deconcini.jpg" alt="Deconcins Port of Entry" title="Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico." style="width:100%";>
+				<div class=" linkbox">
+        Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico. (photograph by Mike Christy of the Arizona Daily Star)
+      </div>
+        <img src="san ysidro.png" title="San Ysidro POE, CA." style="width:100%";>
+        <div class=" linkbox">
+        The San Ysidro POE is the largest pedestrian Port in the United States.
+      </div>
+    </div>
+    </div>
+  </section>
   <footer>
     <hr>
 
-		<a href="https://newmapsplus.github.io">
-			<img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png" alt="University of Kentucky Geography">
-		</a>
+    <a href="https://newmapsplus.github.io">
+      <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png" alt="University of Kentucky Geography">
+    </a>
 
-		<a href="https://uky-gis.github.io">
-			<img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png" alt="University of Kentucky Geography">
-		</a>
-    </footer>
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-      <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-      <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
-      <script src="data/pedestrian x.geojson"></script>
-      <script>
-        var options = {
-          center: [29.8113481, -106.5646035],
-          zoom: 6,
-          zoomSnap: .1,
-          zoomControl: false
-        }
-        var map = L.map('map', options);
+    <a href="https://uky-gis.github.io">
+      <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png" alt="University of Kentucky Geography">
+    </a>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
+  <script src="data/pedestrian x.geojson"></script>
+  <script>
+    var options = {
+      center: [29.8113481, -106.5646035],
+      zoom: 6,
+      zoomSnap: .1,
+      zoomControl: false
+    }
+    var map = L.map('map', options);
 
-        var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-          subdomains: 'abcd',
-          maxZoom: 19
-        }).addTo(map);
+    var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
     /*data.feature.sort(function (a, b) {
           return b.properties.pedestriain - a.properties.pedestrian
         });*/ // sort plants by power output
 
-        map.addControl(L.control.zoom({
-          position: 'topright'
-        }));
-      /*  ports.features.sort(function (a,b) {
+    map.addControl(L.control.zoom({
+      position: 'topright'
+    }));
+    /*  ports.features.sort(function (a,b) {
+        return b.properties.pedestrian - a.properties.pedestrian
+      });*/
+    var commonStyles = {
+      weight: 1,
+      stroke: 1,
+      fillOpacity: .5
+    }
+
+    $.getJSON("data/pedestrian.geojson", function(data) {
+      /*bigPorts.features.sort(function (a,b) {
           return b.properties.pedestrian - a.properties.pedestrian
-        });*/
-        var commonStyles = {
-    			weight: 1,
-    			stroke: 1,
-    			fillOpacity: .5
-    		}
+        });*/ //attempt to sort data- error always says cannot read properties of undefined
+      var bigPorts = L.geoJson(data, {
 
-        $.getJSON("data/pedestrian.geojson", function(data) {
-          /*bigPorts.features.sort(function (a,b) {
-              return b.properties.pedestrian - a.properties.pedestrian
-            });*/ //attempt to sort data- error always says cannot read properties of undefined
-          var bigPorts = L.geoJson(data, {
+        pointToLayer: function(feature, latlng) {
 
-            pointToLayer: function (feature,latlng){
-
-            return L.circleMarker(latlng, commonStyles);
-          },
-          filter: function (feature) {
-            if (feature.properties.pedestrian > 0) {
-              return feature;
-            }
-          },
-          style: function (feature) {
-            return {
-              color: 'green',
-              fillColor: 'green',
-              radius: getRadius(feature.properties.pedestrian)
-            }
-          },
-          onEachFeature: function(feature, layer) { //add UI mouseover color
-            layer.on('mouseover', function() {
-              layer.setStyle({
-                fillColor: 'yellow',
-                color: 'yellow'
-              });
-            });
-            layer.on('mouseout', function() {
-              layer.setStyle({
-                fillColor: 'green',
-                color: 'green'
-              });
-            });
-            layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>"
-            + feature.properties.cp_name + ", " + feature.properties.state + "<br>"
-            + feature.properties.pedestrian + " Pedestrian entries in September 2018");
+          return L.circleMarker(latlng, commonStyles);
+        },
+        filter: function(feature) {
+          if (feature.properties.pedestrian > 0) {
+            return feature;
           }
-          }).addTo(map);
-        });
+        },
+        style: function(feature) {
+          return {
+            color: 'green',
+            fillColor: 'green',
+            radius: getRadius(feature.properties.pedestrian)
+          }
+        },
+        onEachFeature: function(feature, layer) { //add UI mouseover color
+          layer.on('mouseover', function() {
+            layer.setStyle({
+              fillColor: 'yellow',
+              color: 'yellow'
+            });
+          });
+          layer.on('mouseout', function() {
+            layer.setStyle({
+              fillColor: 'green',
+              color: 'green'
+            });
+          });
+          layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>" +
+            feature.properties.cp_name + ", " + feature.properties.state + "<br>" +
+            feature.properties.pedestrian + " Pedestrian entries in September 2018");
+        }
+      }).addTo(map);
+    });
 
-        function getRadius(pedestrians) {
-          var radius = Math.sqrt(pedestrians / Math.PI);
-          return radius * .15
-        };
-      </script>
+    function getRadius(pedestrians) {
+      var radius = Math.sqrt(pedestrians / Math.PI);
+      return radius * .15
+    };
+  </script>
 
 
 </body>
