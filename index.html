@@ -25,9 +25,8 @@
   header,
   footer,
   section {
-    padding: 6px 10%;
-    margin: 0 auto;
-    width: 80%
+    width: 80%;
+    margin: 10px auto;
   }
 
   h1 {
@@ -53,22 +52,28 @@
     display: inline-block;
     margin-right: 20px;
     color: rgb(190, 190, 190);
-    font-size: 1.75em;
+    font-size: 2em;
     font-weight: 700;
   }
   #map {
-    width: 80%;
-    height: 540px;
+    width: 100%;
+    height: 720px;
     margin: 10px auto;
   }
 
   p {
-    font-size: 1em;
     color: rgba(170, 170, 170);
-    ;
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
+
+  		.linkbox {
+  			margin: 3px 0 20px 0;
+  			display: block;
+  			font-size: 1.5em;
+  			font-weight: 300;
+  			line-height: 1.3em;
+  		}
 
   a:link {
     color: #2ca25f;
@@ -122,33 +127,31 @@
     <h1>US Southern Border Pedestrian Crossings September 2018</h1>
     <h2>Broken down by Port of Entry</h2>
   </header>
-
-  <div id='map'></div>
   <section>
 		<div class="row">
 			<div id="map"></div>
 
 			<div class="first-column">
-				          <h3> Hold mouse over each port to view additional information. </h2>
+				  <h3> Hold mouse over each port to view additional information. </h2>
 
-          <p> The above map shows the number of travelers on foot who entered the United States through Ports of Entry  during the month of September in 2018.  The numbers are reported to the US Department of Transportation by Customs and Border Patrol Office of Field Operations agents. </p>
+          <p> Ther are 48 places where one can legally cross between the United States and Mexico. These places are known as Ports of entry.  These Ports of Entry are official crossing points where U.S. Customs and Border Protection (CBP) officers regulate the flow of people and goods between the United States and Mexico. Along the vast U.S.-Mexico border, some ports of entry lie hundreds of miles apart.  Some ports are only for commercial trucks, hauling cargo between the two countries; some are rail crossings, where only trains are allowed to cross.<br>
+          <br>
+            Of the 48 total ports, only the 24 depicted on the map above had travelers cross on foot in September 2018.  The map shows that typically larger number of travelers enter on foot closer to large cities, and that number is smaller at the more remote ports.  Foot traffic at the ports has historically been commuters and those coming to visit famiy; however, in recent months, the number of asylum seekers arriving both at and between the ports has been growing.<br>
+            <br>
+             The numbers are reported to the US Department of Transportation by Customs and Border Patrol Office of Field Operations agents. The number of outbound pedestrians is not tracked by the US CBP, as they are counted by the Mexican authorities.</p>
+          <h3> Data Source and Method </h3>
           <p>Map authored by <a href="https://www.github.com/hstremcha" target="_blank">Hope Stremcha</a></p>
+          <p> Basemap from <a href="https://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank">Leaflet-providers</a></P>
           <p>Border Crossing data accessed from the <a href="https://geo.library.arizona.edu/"> University of Arizona</a> , created by the from the <a href="https://data.transportation.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data">The US Bureau of Transportation Statistics</a>, and updated with September 2018 statistics by the map author.</p>
 
 				</p>
 
-				<p><b>Social links</b></p>
-				<ul>
-					<li>See my projects on GitHub: <a href="https://github.com/hstremcha">HSTREMCHA</a></li>
-
-				</ul>
-
 
 			</div>
 			<div class="column">
-				<img class="max-image-width" src="deconcini.jpg" title="Pedestrians wait to enter the United States at the Deconcini port in Nogales MX.">
+				<img class="max-image-width" src="deconcini.jpg" title="Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico.">
 				<div class="linkbox">
-					Grand Coulee Dam (photograph by someone)
+				Pedestrians wait to enter the United States at the Deconcini port in Nogales MX. (photograph by Mike Christy of the Arizona Daily Star)
 				</div>
 			</div>
 		</div>
@@ -199,9 +202,14 @@
     			fillOpacity: .5
     		}
 
-        $.getJSON("data/pedestrian-x.geojson", function(data) {
+        $.getJSON("data/pedestrian.geojson", function(data) {
+          /*bigPorts.features.sort(function (a,b) {
+              return b.properties.pedestrian - a.properties.pedestrian
+            });*/ //attempt to sort data- error always says cannot read properties of undefined
           var bigPorts = L.geoJson(data, {
+
             pointToLayer: function (feature,latlng){
+
             return L.circleMarker(latlng, commonStyles);
           },
           filter: function (feature) {
@@ -219,12 +227,14 @@
           onEachFeature: function(feature, layer) { //add UI mouseover color
             layer.on('mouseover', function() {
               layer.setStyle({
-                fillColor: 'yellow'
+                fillColor: 'yellow',
+                color: 'yellow'
               });
             });
             layer.on('mouseout', function() {
               layer.setStyle({
-                fillColor: 'green'
+                fillColor: 'green',
+                color: 'green'
               });
             });
             layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>"
