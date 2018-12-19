@@ -184,7 +184,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/simple-statistics@6.1.1/dist/simple-statistics.min.js"></script>
-  <script src="data/pedestrian x.geojson"></script>
+  <!-- <script src="data/pedestrian x.geojson"></script> -->
   <script>
     var options = {
       center: [29.8113481, -106.5646035],
@@ -217,9 +217,14 @@
     }
 
     $.getJSON("data/pedestrian.geojson", function(data) {
-      /*bigPorts.features.sort(function (a,b) {
-          return b.properties.pedestrian - a.properties.pedestrian
-        });*/ //attempt to sort data- error always says cannot read properties of undefined
+
+      // access array elements with correct variable
+
+      data.features.sort(function (a,b) {
+        return b.properties.pedestrian - a.properties.pedestrian
+      })
+
+      console.log(data)
       var bigPorts = L.geoJson(data, {
 
         pointToLayer: function(feature, latlng) {
