@@ -3,7 +3,7 @@
 
 <head>
   <meta charset=utf-8 />
-  <title>Final Project</title>
+  <title>US Southern Border Pedestrian Crossings September 2018</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
 
@@ -126,7 +126,7 @@
     @media screen and (max-width: 900px) {
 
       .first-column,
-      .second-column {
+      .column {
         width: 100%;
       }
     }
@@ -146,34 +146,47 @@
       <div class="first-column">
         <h3> Hold mouse over each port to view additional information. </h2>
 
-          <p> Ther are 48 places where one can legally cross between the United States and Mexico. These places are known as Ports of entry. These Ports of Entry are official crossing points where U.S. Customs and Border Protection (CBP) officers
-            regulate the flow of people and goods between the United States and Mexico. Along the vast U.S.-Mexico border, some ports of entry lie hundreds of miles apart. Some ports are only for commercial trucks, hauling cargo between the two
+          <p> Ther are 48 places where one can legally cross between the United States and Mexico. These places are
+            known as Ports of entry. These Ports of Entry are official crossing points where U.S. Customs and Border
+            Protection (CBP) officers
+            regulate the flow of people and goods between the United States and Mexico. Along the vast U.S.-Mexico
+            border, some ports of entry lie hundreds of miles apart. Some ports are only for commercial trucks, hauling
+            cargo between the two
             countries; some are rail crossings, where only trains are allowed to cross.<br>
             <br>
-            Of the 48 total ports, only the 24 depicted on the map above had travelers cross on foot in September 2018. The map shows that typically larger number of travelers enter on foot closer to large cities, and that number is smaller at the
-            more remote ports. Foot traffic at the ports has historically been commuters and those coming to visit famiy; however, in recent months, the number of asylum seekers arriving both at and between the ports has been growing.<br>
+            Of the 48 total ports, only the 24 depicted on the map above had travelers cross on foot in September 2018.
+            The map shows that typically larger number of travelers enter on foot closer to large cities, and that
+            number is smaller at the
+            more remote ports. Foot traffic at the ports has historically been commuters and those coming to visit
+            famiy; however, in recent months, the number of asylum seekers arriving both at and between the ports has
+            been growing.<br>
             <br>
-            The numbers are reported to the US Department of Transportation by Customs and Border Patrol Office of Field Operations agents. The number of outbound pedestrians is not tracked by the US CBP, as they are counted by the Mexican
+            The numbers are reported to the US Department of Transportation by Customs and Border Patrol Office of
+            Field Operations agents. The number of outbound pedestrians is not tracked by the US CBP, as they are
+            counted by the Mexican
             authorities.</p>
           <h3> Data Source and Method </h3>
           <p>Map authored by <a href="https://www.github.com/hstremcha" target="_blank">Hope Stremcha</a></p>
           <p> Basemap from <a href="https://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank">Leaflet-providers</a></P>
-          <p>Border Crossing data accessed from the <a href="https://geo.library.arizona.edu/"> University of Arizona</a> , created by the from the <a href="https://data.transportation.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data">The
+          <p>Border Crossing data accessed from the <a href="https://geo.library.arizona.edu/"> University of Arizona</a>
+            , created by the from the <a href="https://data.transportation.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2/data">The
               US Bureau of Transportation Statistics</a>, and updated with September 2018 statistics by the map author.</p>
-          <p> Circle Markers' radii are proportional to the number of pedestrians that entered the US in September 2018.</p>
-
-
+          <p> Circle Markers' radii are proportional to the number of pedestrians that entered the US in September
+            2018.</p>
       </div>
       <div class="column">
-        <img src="deconcini.jpg" alt="Deconcins Port of Entry" title="Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico." style="width:100%";>
-				<div class=" linkbox">
-        Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico. (photograph by Mike Christy of the Arizona Daily Star)
-      </div>
-        <img src="san ysidro.png" title="San Ysidro POE, CA." style="width:100%";>
+        <img src="deconcini.jpg" alt="Deconcins Port of Entry" title="Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico."
+          style="width:100%" ;>
         <div class=" linkbox">
-        The San Ysidro POE is the largest pedestrian Port in the United States. (photo by US Customs and Border Protection)
+          Pedestrians wait to enter the United States at the Deconcini port in Nogales, Mexico. (photograph by Mike
+          Christy of the Arizona Daily Star)
+        </div>
+        <img src="san ysidro.png" title="San Ysidro POE, CA." style="width:100%" ;>
+        <div class=" linkbox">
+          The San Ysidro POE is the largest pedestrian Port in the United States. (photo by US Customs and Border
+          Protection)
+        </div>
       </div>
-    </div>
     </div>
   </section>
   <footer>
@@ -222,41 +235,41 @@
       fillOpacity: .5
     }
 
-    $.getJSON("data/pedestrian.geojson", function(data) {
+    $.getJSON("data/pedestrian.geojson", function (data) {
 
       // access array elements with correct variable
 
-      data.features.sort(function (a,b) {
+      data.features.sort(function (a, b) {
         return b.properties.pedestrian - a.properties.pedestrian
       })
 
       console.log(data)
       var bigPorts = L.geoJson(data, {
 
-        pointToLayer: function(feature, latlng) {
+        pointToLayer: function (feature, latlng) {
 
           return L.circleMarker(latlng, commonStyles);
         },
-        filter: function(feature) {
+        filter: function (feature) {
           if (feature.properties.pedestrian > 0) {
             return feature;
           }
         },
-        style: function(feature) {
+        style: function (feature) {
           return {
             color: 'green',
             fillColor: 'green',
             radius: getRadius(feature.properties.pedestrian)
           }
         },
-        onEachFeature: function(feature, layer) { //add UI mouseover color
-          layer.on('mouseover', function() {
+        onEachFeature: function (feature, layer) { //add UI mouseover color
+          layer.on('mouseover', function () {
             layer.setStyle({
               fillColor: 'yellow',
               color: 'yellow'
             });
           });
-          layer.on('mouseout', function() {
+          layer.on('mouseout', function () {
             layer.setStyle({
               fillColor: 'green',
               color: 'green'
