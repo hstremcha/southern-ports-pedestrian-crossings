@@ -259,7 +259,7 @@
           });
           layer.bindTooltip("<b>" + feature.properties.portname + " Port of Entry " + "</b><br>" +
             feature.properties.cp_name + ", " + feature.properties.state + "<br>" +
-            feature.properties.pedestrian + " Pedestrian entries in September 2018");
+            feature.properties.pedestrian.toLocaleString() + " Pedestrian entries in September 2018");
         }
       }).addTo(map);
     });
